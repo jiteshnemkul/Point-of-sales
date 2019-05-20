@@ -9,4 +9,6 @@ import com.jitesh.bean.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByUserName(String username);
+	@Override
+	public User save(User userInfo);
 }

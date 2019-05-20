@@ -87,4 +87,9 @@ public class AdminController implements Initializable {
 
     }
 
+    @FXML
+    public void staffAction(ActionEvent event) throws Exception {
+        stageManager.switchScene(FxmlView.Employee);
+    }
+
 }

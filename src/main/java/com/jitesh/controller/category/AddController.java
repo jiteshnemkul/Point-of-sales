@@ -2,6 +2,7 @@ package com.jitesh.controller.category;
 
 
 import com.jitesh.bean.Category;
+import com.jitesh.config.StageManager;
 import com.jitesh.service.categoryService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -22,6 +24,10 @@ import java.util.ResourceBundle;
 @ComponentScan
 @Controller
 public class AddController implements Initializable {
+    @Lazy
+    @Autowired
+    private StageManager stageManager;
+
     @FXML
     private TextField typeField;
     @FXML
@@ -31,6 +37,9 @@ public class AddController implements Initializable {
 
     @Autowired
     private categoryService cata;
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,7 +58,8 @@ public class AddController implements Initializable {
 
         if (validateInput()) {
 
-            Category category = new Category();
+
+            Category category=new Category();
 
             category.setType(typeField.getText());
             category.setDescription(descriptionArea.getText());

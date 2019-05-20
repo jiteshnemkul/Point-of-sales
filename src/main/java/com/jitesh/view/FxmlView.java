@@ -48,6 +48,17 @@ public enum FxmlView {
             return "/fxml/category/Edit.fxml";
         }
     },
+    Employee {
+        @Override
+        public String getTitle() {
+            return getStringFromResourceBundle("employee.title");
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "/fxml/Employee.fxml";
+        }
+    },
     LOGIN {
         @Override
 		public String getTitle() {

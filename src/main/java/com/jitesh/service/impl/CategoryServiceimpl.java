@@ -8,43 +8,45 @@ import com.jitesh.service.categoryService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@ComponentScan
 @Service
 public class CategoryServiceimpl implements categoryService {
     @Autowired
-    private CategoryRepository cat;
+    private CategoryRepository categoryRepository;
 
     @Override
     public Category save(Category entity) {
-        return cat.save(entity);
+
+        return categoryRepository.save(entity);
     }
 
     @Override
     public Category update(Category entity) {
-        return cat.save(entity);
+        return categoryRepository.save(entity);
     }
 
     @Override
     public void delete(Category entity) {
-        cat.delete(entity);
+        categoryRepository.delete(entity);
     }
 
     @Override
     public void delete(Long id) {
-        cat.delete(id);
+        categoryRepository.delete(id);
     }
 
     @Override
     public Category find(Long id) {
-        return cat.findOne(id);
+        return categoryRepository.findOne(id);
     }
 
     @Override
     public List<Category> findAll() {
-        return cat.findAll();
+        return categoryRepository.findAll();
     }
 
    /* @Override
@@ -74,7 +76,7 @@ public class CategoryServiceimpl implements categoryService {
 
     @Override
     public void deleteInBatch(List<Category> categories) {
-        cat.deleteInBatch(categories);
+        categoryRepository.deleteInBatch(categories);
     }
 
 }
